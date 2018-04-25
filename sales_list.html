@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap Inventory System</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+ 
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+        <script src="js/respond.min.js"></script>  
+    <![endif]-->
+    
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse noPadding">
+    	<div class="container-fluid">
+        	<div class="navbar-header">
+            	<a href="#" class="navbar-brand">Inventory System</a>
+            </div>
+            <ul class="nav navbar-right navbar-nav">
+            	<li><a href="#"><button class="btn btn-danger">Alerts</button></a></li>
+                <li><a href="#"><button class="btn btn-success">New Items</button></a></li>
+                <li><a href="#"><button class="btn btn-primary">Out of Stock</button></a></li>
+                <li><a href="#"><button class="btn btn-info">New Clients</button></a></li>
+                <li><a href="#"><button class="btn btn-warning">New Suppliers</button></a></li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><button class="btn btn-default">Robin Khatri&nbsp;&nbsp;<span class="caret"></span></button></a>
+                	<ul class="dropdown-menu">
+                    	<li><a href="#">Profile</a></li>
+                        <li><a href="#">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="col-md-2 noPadding">
+    	<ul class="navbar navbar-inverse nav sidebar">
+        	<li><a href="index.html"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
+            <li><a href="#products" data-toggle="collapse"><span class="glyphicon glyphicon-th-large"></span> Products</a>
+            	<ul id="products" class="nav collapse">
+                	<li><a href="product_list.html"><div class="col-md-1"></div><span class="glyphicon glyphicon-list"></span> Product List</a></li>
+                    <li><a href="add_product.html"><div class="col-md-1"></div><span class="glyphicon glyphicon-download-alt"></span> Add New Product</a></li>
+                </ul>
+            </li>
+            <li><a href="#sales" data-toggle="collapse"><span class="glyphicon glyphicon-export"></span> Sales</a>
+            	<ul id="sales" class="nav collapse">
+                	<li><a href="sales_list.html"><div class="col-md-1"></div><span class="glyphicon glyphicon-list"></span> Sales List</a></li>
+                    <li><a href="add_sale.html"><div class="col-md-1"></div><span class="glyphicon glyphicon-download-alt"></span> Add New Sale</a></li>
+                </ul>
+            </li>
+            <li><a href="#purchases" data-toggle="collapse"><span class="glyphicon glyphicon-import"></span> Purchases</a>
+            	<ul id="purchases" class="nav collapse">
+                	<li><a href="purchases_list.html"><div class="col-md-1"></div><span class="glyphicon glyphicon-list"></span> Purchases List</a></li>
+                    <li><a href="add_purchase.html"><div class="col-md-1"></div><span class="glyphicon glyphicon-download-alt"></span> Add New Purchase</a></li>
+                </ul>
+            </li>
+            <li><a href="#people" data-toggle="collapse"><span class="glyphicon glyphicon-user"></span> People</a>
+            	<ul id="people" class="nav collapse">
+                	<li><a href="client_list.html"><div class="col-md-1"></div><span class="glyphicon glyphicon-user"></span> Clients List</a></li>
+                    <li><a href="supplier_list.html"><div class="col-md-1"></div><span class="glyphicon glyphicon-user"></span> Suppliers List</a></li>
+                    <li><a href="add_client.html"><div class="col-md-1"></div><span class="glyphicon glyphicon-floppy-saved"></span> Add Client</a></li>
+                    <li><a href="add_supplier.html"><div class="col-md-1"></div><span class="glyphicon glyphicon-floppy-saved"></span> Add Supplier</a></li>
+                </ul>
+            </li>            
+            
+        </ul>
+    </div>
+    <div class="col-md-10">
+    <div class="page-header">
+            	<h3>Sales List</h3>
+            </div>
+        
+    	<div class="col-md-12">
+        	<table class="table table-bordered table-hover table-responsive">
+            	<thead>
+                	<tr class="table-head">
+                    	<th>Date</th>
+                        <th>Biller Name</th>
+                        <th>Account #</th>
+                        <th>Company Name</th>
+                        <th>Payment Mode</th>
+                        <th>Total Amount</th>
+                        <th>Paid Amount</th>
+                        <th>Balance Amount</th>
+                        <th>Payment Status</th>
+                        <th>Shipping Date</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                	<tr>
+                    	<td>1-12-16</td>
+                        <td>Prem Kumar</td>
+                        <td>image</td>
+                        <td>P.K. Electricals</td>
+                        <td>Cash</td>
+                        <td>20000/-</td>
+                        <td>15000/-</td>
+                        <td>5000/-</td>
+                        <td><button class="btn btn-info">Partial</button></td>
+                        <td>11-12-16</td>
+                        <td>
+                        	<button class="btn btn-danger" data-toggle="modal" data-target="#sale_modal">Details</button>
+                            <div class="modal fade" id="sale_modal">
+                            	<div class="modal-dialog modal-lg">
+                                	<div class="modal-content">
+                                    	<div class="modal-header">
+                                        	<button class="close" data-dismiss="modal">&times;</button>
+                                        	<h4 class="modal-title">Sale Detail</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                        	<div class="col-md-6">
+                                            	<p>
+                                                	<br />From: <br /><br />
+                                                    <strong>Our Company</strong><br /><br />
+                                                    Address<br />
+                                                    New York<br />
+                                                    Washington DC<br />
+                                                    <br />
+                                                    656773435643<br />
+                                                    abc@gmail.com
+                                                </p>
+                                            </div>
+                                            <div class="col-md-6">
+                                            	<p>
+                                                	<br />To: <br /><br />
+                                                    <strong>Our Company</strong><br /><br />
+                                                    Address<br />
+                                                    New York<br />
+                                                    Washington DC<br />
+                                                    <br />
+                                                    656773435643<br />
+                                                    abc@gmail.com
+                                                </p>
+                                            </div>
+                                            <table class="table table-striped">
+                                            	<thead>
+                                                	<tr>
+                                                    	<th>S.no</th>
+                                                        <th>Description</th>
+                                                        <th>Quantity</th>
+                                                        <th>Unit Price</th>
+                                                        <th>Sub Total</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                	<tr>
+                                                    	<td>1</td>
+                                                        <td>1Best Chocolate 24/P</td>
+                                                        <td class="text-right">4</td>
+                                                        <td class="text-right">20</td>
+                                                        <td class="text-right">40</td>
+                                                    </tr>
+                                                    <tr>
+                                                    	<td>2</td>
+                                                        <td>Head &nbsp; Shoulders Shampoo</td>
+                                                        <td class="text-right">4</td>
+                                                        <td class="text-right">40</td>
+                                                        <td class="text-right">470</td>
+                                                    </tr>
+                                                    <tr>
+                                                    	<td>3</td>
+                                                        <td>Penteen Shampoo</td>
+                                                        <td class="text-right">5</td>
+                                                        <td class="text-right">7670</td>
+                                                        <td class="text-right">44540</td>
+                                                    </tr>
+                                                    <tr>
+                                                    	<td>7</td>
+                                                        <td>1Best Chocolate 24/P</td>
+                                                        <td class="text-right">4</td>
+                                                        <td class="text-right">20</td>
+                                                        <td class="text-right">40</td>
+                                                    </tr>
+                                                    <tr>
+                                                    	<td>1</td>
+                                                        <td>1Best Chocolate 24/P</td>
+                                                        <td class="text-right">4</td>
+                                                        <td class="text-right">20</td>
+                                                        <td class="text-right">40</td>
+                                                    </tr>
+                                                    <tr class="text-right">
+                                                        <td colspan="4"><strong>Grand Total</strong></td>
+                                                        <td colspan="1"><strong>35566</strong></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="modal-footer"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td>1-12-16</td>
+                        <td>Kailash Jangid</td>
+                        <td>image</td>
+                        <td>Kailash Paints</td>
+                        <td>Credit</td>
+                        <td>20000/-</td>
+                        <td>0/-</td>
+                        <td>20000/-</td>
+                        <td><button class="btn btn-warning">Pending</button></td>
+                        <td>11-12-16</td>
+                        <td><button class="btn btn-danger">Details</button></td>
+                    </tr>
+                    <tr>
+                    	<td>1-12-16</td>
+                        <td>Jivan Misthan Bhandar</td>
+                        <td>image</td>
+                        <td>Navratan Gupta</td>
+                        <td>Cash</td>
+                        <td>20000/-</td>
+                        <td>20000/-</td>
+                        <td>0/-</td>
+                        <td><button class="btn btn-success">Paid</button></td>
+                        <td>11-12-16</td>
+                        <td><button class="btn btn-danger">Details</button></td>
+                    </tr>
+                    <tr>
+                    	<td>1-12-16</td>
+                        <td>Prem Kumar</td>
+                        <td>image</td>
+                        <td>P.K. Electricals</td>
+                        <td>Cash</td>
+                        <td>20000/-</td>
+                        <td>15000/-</td>
+                        <td>5000/-</td>
+                        <td><button class="btn btn-info">Partial</button></td>
+                        <td>11-12-16</td>
+                        <td><button class="btn btn-danger">Details</button></td>
+                    </tr>
+                    <tr>
+                    	<td>1-12-16</td>
+                        <td>Prem Kumar</td>
+                        <td>image</td>
+                        <td>P.K. Electricals</td>
+                        <td>Cash</td>
+                        <td>20000/-</td>
+                        <td>15000/-</td>
+                        <td>5000/-</td>
+                        <td><button class="btn btn-info">Partial</button></td>
+                        <td>11-12-16</td>
+                        <td><button class="btn btn-danger">Details</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+  </body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap Inventory System</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+ 
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+        <script src="js/respond.min.js"></script>  
+    <![endif]-->
+    
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse noPadding">
+    	<div class="container-fluid">
+        	<div class="navbar-header">
+            	<a href="#" class="navbar-brand">Inventory System</a>
+            </div>
+            <ul class="nav navbar-right navbar-nav">
+            	<li><a href="#"><button class="btn btn-danger">Alerts</button></a></li>
+                <li><a href="#"><button class="btn btn-success">New Items</button></a></li>
+                <li><a href="#"><button class="btn btn-primary">Out of Stock</button></a></li>
+                <li><a href="#"><button class="btn btn-info">New Clients</button></a></li>
+                <li><a href="#"><button class="btn btn-warning">New Suppliers</button></a></li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><button class="btn btn-default">Robin Khatri&nbsp;&nbsp;<span class="caret"></span></button></a>
+                	<ul class="dropdown-menu">
+                    	<li><a href="#">Profile</a></li>
+                        <li><a href="#">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="col-md-2 noPadding">
+    	<ul class="navbar navbar-inverse nav sidebar">
+        	<li><a href="index.html"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
+            <li><a href="#products" data-toggle="collapse"><span class="glyphicon glyphicon-th-large"></span> Products</a>
+            	<ul id="products" class="nav collapse">
+                	<li><a href="product_list.html"><div class="col-md-1"></div><span class="glyphicon glyphicon-list"></span> Product List</a></li>
+                    <li><a href="add_product.html"><div class="col-md-1"></div><span class="glyphicon glyphicon-download-alt"></span> Add New Product</a></li>
+                </ul>
+            </li>
+            <li><a href="#sales" data-toggle="collapse"><span class="glyphicon glyphicon-export"></span> Sales</a>
+            	<ul id="sales" class="nav collapse">
+                	<li><a href="sales_list.html"><div class="col-md-1"></div><span class="glyphicon glyphicon-list"></span> Sales List</a></li>
+                    <li><a href="add_sale.html"><div class="col-md-1"></div><span class="glyphicon glyphicon-download-alt"></span> Add New Sale</a></li>
+                </ul>
+            </li>
+            <li><a href="#purchases" data-toggle="collapse"><span class="glyphicon glyphicon-import"></span> Purchases</a>
+            	<ul id="purchases" class="nav collapse">
+                	<li><a href="purchases_list.html"><div class="col-md-1"></div><span class="glyphicon glyphicon-list"></span> Purchases List</a></li>
+                    <li><a href="add_purchase.html"><div class="col-md-1"></div><span class="glyphicon glyphicon-download-alt"></span> Add New Purchase</a></li>
+                </ul>
+            </li>
+            <li><a href="#people" data-toggle="collapse"><span class="glyphicon glyphicon-user"></span> People</a>
+            	<ul id="people" class="nav collapse">
+                	<li><a href="client_list.html"><div class="col-md-1"></div><span class="glyphicon glyphicon-user"></span> Clients List</a></li>
+                    <li><a href="supplier_list.html"><div class="col-md-1"></div><span class="glyphicon glyphicon-user"></span> Suppliers List</a></li>
+                    <li><a href="add_client.html"><div class="col-md-1"></div><span class="glyphicon glyphicon-floppy-saved"></span> Add Client</a></li>
+                    <li><a href="add_supplier.html"><div class="col-md-1"></div><span class="glyphicon glyphicon-floppy-saved"></span> Add Supplier</a></li>
+                </ul>
+            </li>            
+            
+        </ul>
+    </div>
+    <div class="col-md-10">
+    <div class="page-header">
+            	<h3>Product List</h3>
+            </div>
+    	<div class="col-md-4">
+        	<div class="panel panel-info">
+            	<div class="panel-heading">
+                	<div class="row">
+                    	<div class="col-md-3">
+                        	<span class="glyphicon glyphicon-signal" style="font-size:4.5em;"></span>
+                        </div>
+                        <div class="col-md-9 text-right">
+                        	<p style="font-size:2.5em;">67</p>
+                            <div style="font-size:1.5em;">Products</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                	<div class="panel-footer">
+                    	<div class="pull-left">View Products</div>
+                            <div class="pull-right"><span class="glyphicon glyphicon-circle-arrow-right"></span></div>
+                            <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4">
+        	<div class="panel panel-warning">
+            	<div class="panel-heading">
+                	<div class="row">
+                    	<div class="col-md-3">
+                        	<span class="glyphicon glyphicon-signal" style="font-size:4.5em;"></span>
+                        </div>
+                        <div class="col-md-9 text-right">
+                        	<p style="font-size:2.5em;">8</p>
+                            <div style="font-size:1.5em;">Out of Stock</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                	<div class="panel-footer">
+                    	<div class="pull-left">View List</div>
+                            <div class="pull-right"><span class="glyphicon glyphicon-circle-arrow-right"></span></div>
+                            <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4">
+        	<div class="panel panel-danger">
+            	<div class="panel-heading">
+                	<div class="row">
+                    	<div class="col-md-3">
+                        	<span class="glyphicon glyphicon-signal" style="font-size:4.5em;"></span>
+                        </div>
+                        <div class="col-md-9 text-right">
+                        	<p style="font-size:2.5em;">4</p>
+                            <div style="font-size:1.5em;">New Added</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                	<div class="panel-footer">
+                    	<div class="pull-left">View Products</div>
+                            <div class="pull-right"><span class="glyphicon glyphicon-circle-arrow-right"></span></div>
+                            <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+    	<div class="col-md-12">
+        	<table class="table table-bordered table-hover table-responsive">
+            	<thead>
+                	<tr class="table-head">
+                    	<th>Serial Number</th>
+                        <th>Product Code</th>
+                        <th>Product Image</th>
+                        <th>Product Description</th>
+                        <th>Product Unit</th>
+                        <th>Product Cost</th>
+                        <th>Product Price</th>
+                        <th>Available Quantity</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                	<tr>
+                    	<td>1</td>
+                        <td>1205825579</td>
+                        <td>image</td>
+                        <td>Nestle Kitkat</td>
+                        <td>Qty</td>
+                        <td>800/-</td>
+                        <td>900/-</td>
+                        <td>80</td>
+                        <td>
+                        	<div class="dropdown">
+                        		<button class="btn btn-danger" data-toggle="dropdown">Action <span class="caret"></span></button>
+                                <ul class="dropdown-menu pull-right">
+                                	<li><a href="#">Product Details</a></li>
+                                    <li><a href="#">Edit Products</a></li>
+                                    <li><a href="#">Print Details</a></li>
+                                    <li><a href="#">Delete Product</a></li>
+                                </ul>    	
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td>2</td>
+                        <td>1103225579</td>
+                        <td>image</td>
+                        <td>Nestle Barone</td>
+                        <td>Qty</td>
+                        <td>500/-</td>
+                        <td>700/-</td>
+                        <td>10</td>
+                        <td>
+                        	<div class="dropdown">
+                        		<button class="btn btn-danger" data-toggle="dropdown">Action <span class="caret"></span></button>
+                                <ul class="dropdown-menu pull-right">
+                                	<li><a href="#">Product Details</a></li>
+                                    <li><a href="#">Edit Products</a></li>
+                                    <li><a href="#">Print Details</a></li>
+                                    <li><a href="#">Delete Product</a></li>
+                                </ul>    	
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td>3</td>
+                        <td>127893556</td>
+                        <td>image</td>
+                        <td>Maggi Noodles</td>
+                        <td>Qty</td>
+                        <td>1200/-</td>
+                        <td>1400/-</td>
+                        <td>200</td>
+                        <td>
+                        	<div class="dropdown">
+                        		<button class="btn btn-danger" data-toggle="dropdown">Action <span class="caret"></span></button>
+                                <ul class="dropdown-menu pull-right">
+                                	<li><a href="#">Product Details</a></li>
+                                    <li><a href="#">Edit Products</a></li>
+                                    <li><a href="#">Print Details</a></li>
+                                    <li><a href="#">Delete Product</a></li>
+                                </ul>    	
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td>3</td>
+                        <td>127893556</td>
+                        <td>image</td>
+                        <td>Maggi Noodles</td>
+                        <td>Qty</td>
+                        <td>1200/-</td>
+                        <td>1400/-</td>
+                        <td>200</td>
+                        <td>
+                        	<div class="dropdown">
+                        		<button class="btn btn-danger" data-toggle="dropdown">Action <span class="caret"></span></button>
+                                <ul class="dropdown-menu pull-right">
+                                	<li><a href="#">Product Details</a></li>
+                                    <li><a href="#">Edit Products</a></li>
+                                    <li><a href="#">Print Details</a></li>
+                                    <li><a href="#">Delete Product</a></li>
+                                </ul>    	
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td>3</td>
+                        <td>127893556</td>
+                        <td>image</td>
+                        <td>Maggi Noodles</td>
+                        <td>Qty</td>
+                        <td>1200/-</td>
+                        <td>1400/-</td>
+                        <td>200</td>
+                        <td>
+                        	<div class="dropdown">
+                        		<button class="btn btn-danger" data-toggle="dropdown">Action <span class="caret"></span></button>
+                                <ul class="dropdown-menu pull-right">
+                                	<li><a href="#">Product Details</a></li>
+                                    <li><a href="#">Edit Products</a></li>
+                                    <li><a href="#">Print Details</a></li>
+                                    <li><a href="#">Delete Product</a></li>
+                                </ul>    	
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td>3</td>
+                        <td>127893556</td>
+                        <td>image</td>
+                        <td>Maggi Noodles</td>
+                        <td>Qty</td>
+                        <td>1200/-</td>
+                        <td>1400/-</td>
+                        <td>200</td>
+                        <td>
+                        	<div class="dropdown">
+                        		<button class="btn btn-danger" data-toggle="dropdown">Action <span class="caret"></span></button>
+                                <ul class="dropdown-menu pull-right">
+                                	<li><a href="#">Product Details</a></li>
+                                    <li><a href="#">Edit Products</a></li>
+                                    <li><a href="#">Print Details</a></li>
+                                    <li><a href="#">Delete Product</a></li>
+                                </ul>    	
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td>3</td>
+                        <td>127893556</td>
+                        <td>image</td>
+                        <td>Maggi Noodles</td>
+                        <td>Qty</td>
+                        <td>1200/-</td>
+                        <td>1400/-</td>
+                        <td>200</td>
+                        <td>
+                        	<div class="dropdown">
+                        		<button class="btn btn-danger" data-toggle="dropdown">Action <span class="caret"></span></button>
+                                <ul class="dropdown-menu pull-right">
+                                	<li><a href="#">Product Details</a></li>
+                                    <li><a href="#">Edit Products</a></li>
+                                    <li><a href="#">Print Details</a></li>
+                                    <li><a href="#">Delete Product</a></li>
+                                </ul>    	
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+  </body>
+</html>

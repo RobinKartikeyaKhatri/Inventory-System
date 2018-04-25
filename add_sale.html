@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap Inventory System</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+  	<script>tinymce.init({ selector:'textarea' });</script>
+ 
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+        <script src="js/respond.min.js"></script>  
+    <![endif]-->
+    
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse noPadding">
+    	<div class="container-fluid">
+        	<div class="navbar-header">
+            	<a href="#" class="navbar-brand">Inventory System</a>
+            </div>
+            <ul class="nav navbar-right navbar-nav">
+            	<li><a href="#"><button class="btn btn-danger">Alerts</button></a></li>
+                <li><a href="#"><button class="btn btn-success">New Items</button></a></li>
+                <li><a href="#"><button class="btn btn-primary">Out of Stock</button></a></li>
+                <li><a href="#"><button class="btn btn-info">New Clients</button></a></li>
+                <li><a href="#"><button class="btn btn-warning">New Suppliers</button></a></li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><button class="btn btn-default">Robin Khatri&nbsp;&nbsp;<span class="caret"></span></button></a>
+                	<ul class="dropdown-menu">
+                    	<li><a href="#">Profile</a></li>
+                        <li><a href="#">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="col-md-2 noPadding">
+    	<ul class="navbar navbar-inverse nav sidebar">
+        	<li><a href="index.html"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
+            <li><a href="#products" data-toggle="collapse"><span class="glyphicon glyphicon-th-large"></span> Products</a>
+            	<ul id="products" class="nav collapse">
+                	<li><a href="product_list.html"><div class="col-md-1"></div><span class="glyphicon glyphicon-list"></span> Product List</a></li>
+                    <li><a href="add_product.html"><div class="col-md-1"></div><span class="glyphicon glyphicon-download-alt"></span> Add New Product</a></li>
+                </ul>
+            </li>
+            <li><a href="#sales" data-toggle="collapse"><span class="glyphicon glyphicon-export"></span> Sales</a>
+            	<ul id="sales" class="nav collapse">
+                	<li><a href="sales_list.html"><div class="col-md-1"></div><span class="glyphicon glyphicon-list"></span> Sales List</a></li>
+                    <li><a href="add_sale.html"><div class="col-md-1"></div><span class="glyphicon glyphicon-download-alt"></span> Add New Sale</a></li>
+                </ul>
+            </li>
+            <li><a href="#purchases" data-toggle="collapse"><span class="glyphicon glyphicon-import"></span> Purchases</a>
+            	<ul id="purchases" class="nav collapse">
+                	<li><a href="purchases_list.html"><div class="col-md-1"></div><span class="glyphicon glyphicon-list"></span> Purchases List</a></li>
+                    <li><a href="add_purchase.html"><div class="col-md-1"></div><span class="glyphicon glyphicon-download-alt"></span> Add New Purchase</a></li>
+                </ul>
+            </li>
+            <li><a href="#people" data-toggle="collapse"><span class="glyphicon glyphicon-user"></span> People</a>
+            	<ul id="people" class="nav collapse">
+                	<li><a href="client_list.html"><div class="col-md-1"></div><span class="glyphicon glyphicon-user"></span> Clients List</a></li>
+                    <li><a href="supplier_list.html"><div class="col-md-1"></div><span class="glyphicon glyphicon-user"></span> Suppliers List</a></li>
+                    <li><a href="add_client.html"><div class="col-md-1"></div><span class="glyphicon glyphicon-floppy-saved"></span> Add Client</a></li>
+                    <li><a href="add_supplier.html"><div class="col-md-1"></div><span class="glyphicon glyphicon-floppy-saved"></span> Add Supplier</a></li>
+                </ul>
+            </li>            
+            
+        </ul>
+    </div>
+    <div class="col-md-10">
+        <div class="page-header">
+            <h3>Add New Sale</h3>
+        </div>
+        <div class="form-group">
+        	<label>Client Name</label>
+            <input list="cl_name" class="form-control">
+            <datalist id="cl_name">
+            	<option>John</option>
+                <option>Michael</option>
+                <option>Elizabeth</option>
+                <option>Shan</option>
+                <option>Mark</option>
+            </datalist>
+        </div>
+        <hr>
+        <div class="form-group">
+        	<label>Product Name</label>
+            <input list="pr_name" class="form-control">
+            <datalist id="pr_name">
+            	<option>Head Shoulders Shampoo</option>
+                <option>Panteen Shampoo</option>
+                <option>Nestle Kitkat</option>
+                <option>Nestle Barone</option>
+                <option>Maggi Instant Noodle</option>
+            </datalist>
+        </div>
+        <div class="page-header">
+        	<h4>Ordered Items</h4>
+        </div>
+        <table class="table table-striped">
+        	<thead>
+            	<tr>
+                	<th>S.no</th>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Sub Total</th>
+                </tr>
+            </thead>
+            <tbody>
+            	<tr>
+                	<td>1</td>
+                    <td>Best Chocolate</td>
+                    <td>65</td>
+                    <td>15</td>
+                    <td>975</td>
+                </tr>
+                <tr>
+                	<td>1</td>
+                    <td>Best Chocolate</td>
+                    <td>65</td>
+                    <td>15</td>
+                    <td>975</td>
+                </tr>
+                <tr>
+                	<td>1</td>
+                    <td>Best Chocolate</td>
+                    <td>65</td>
+                    <td>15</td>
+                    <td>975</td>
+                </tr>
+                <tr>
+                	<td>1</td>
+                    <td>Best Chocolate</td>
+                    <td>65</td>
+                    <td>15</td>
+                    <td>975</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        <div class="col-md-3">
+        	<div class="form-group">
+            	<label>Discount</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+            	<label>Sale Status</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+            	<label>Amount</label>
+                <input type="text" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-4">
+        	<div class="form-group">
+            	<label>Payment Term</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+            	<label>Payment Status</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+            	<label>Check # / Money order #</label>
+                <input type="text" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-4">
+        	<div class="form-group">
+            	<label>Shiping Date</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+            	<label>Payment Mode</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+            	<label>Bank</label>
+                <input type="text" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-12">
+           	<textarea></textarea>
+            <button class="btn btn-danger btn-block">Add New Sale</button>
+        </div>
+    </div>
+
+    
+  </body>
+</html>
